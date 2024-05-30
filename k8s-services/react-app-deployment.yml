@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactEssential-deployment
+  labels:
+    app: reactEssential
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: reactEssential
+  template:
+    metadata:
+      labels:
+        app: reactEssential
+    spec:
+      containers:
+      - name: reactEssential-deployment
+        image: democontainerr.azurecr.io/demoimages:20
+        ports:
+        - containerPort: 80
