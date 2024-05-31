@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toprefunder-reactapp
+  labels:
+    app: reactapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reactapp
+  template:
+    metadata:
+      labels:
+        app: reactapp
+    spec:
+      containers:
+      - name: toprefunder-reactapp
+        image: democontainerr.azurecr.io/demoimages:20
+        ports:
+        - containerPort: 5173
