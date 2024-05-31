@@ -1,21 +1,22 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: reactEssential-deployment
-  labels:
-    app: reactEssential
+  name: react-app-deployment
+  namespace: argocd
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: reactEssential
-  template:
-    metadata:
-      labels:
-        app: reactEssential
-    spec:
-      containers:
-      - name: reactEssential-deployment
-        image: democontainerr.azurecr.io/demoimages:20
-        ports:
-        - containerPort: 80
+  project: default
+  source:
+    repoURL: https://github.com/thomaseneh/Azure-CICD-Pipeline.git
+    targetRevision: HEAD
+    path: k8s-services
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: myapp
+
+  syncPolicy:
+    syncOptions:
+    - CreateNameSpace=true
+
+    automated:
+      selfHeal: true
+      prune: true
