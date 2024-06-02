@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/thomaseneh/Azure-CICD-Pipeline.git
+    repoURL: lo5furbv5qsybhl4lny4gwq6czvcszyvfiey4ouu4zz76ks235sq@dev.azure.com/elizabethtumini/demo/_git/demo
     targetRevision: HEAD
     path: k8s-services
   destination:

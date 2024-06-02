@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: toprefunder-reactapp
-        image: democontainerr.azurecr.io/demoimages:20
+        image: democontainerr.azurecr.io/demoimages:27
         ports:
         - containerPort: 5173
